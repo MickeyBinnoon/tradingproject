@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Shield, Zap, Users } from "lucide-react";
@@ -45,7 +44,7 @@ export default function HeroSection() {
                 className="text-4xl lg:text-6xl font-bold text-slate-900 leading-tight"
               >
                 Effortless
-                <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent block">
+                <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent block leading-normal">
                   Automated Trading
                 </span>
                 Proven Results.
