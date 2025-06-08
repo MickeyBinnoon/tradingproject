@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  username            String    @id @db.Text
+  email               String    @db.Text
+  createdAt           DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
+  lastLoginAt         DateTime? @map("last_login_at") @db.Timestamp(6)
+  plan                String?   @db.Text
+  subscriptionStart   DateTime? @map("subscription_start") @db.Timestamp(6)
+  subscriptionCancel  DateTime? @map("subscription_cancel") @db.Timestamp(6)
+  demoBalance         Decimal   @map("demo_balance") @db.Decimal
+  alpacaBalance       Decimal?  @map("alpaca_balance") @db.Decimal
+
+  @@map("users")
+}
